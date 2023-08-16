@@ -5,6 +5,12 @@ import shutil
 from ai import Action, TargetCondition, TargetType
 
 def find_and_edit_files(input_folder, output_folder, target_filename, find_action, find_condition, find_target, action_replace, condition_replace, target_replace):
+    print("find_action = ", find_action)
+    print("find_condition = ", find_condition)
+    print("find_target = ", find_target)
+    print("action_replace = ", action_replace)
+    print("condition_replace = ", condition_replace)
+    print("target_replace = ", target_replace)
     log_objects = []
     
     for folder_path, _, filenames in os.walk(input_folder):
