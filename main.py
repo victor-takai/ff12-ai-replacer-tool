@@ -15,6 +15,7 @@ def find_and_edit_files(input_folder, output_folder, target_filename, find_actio
     # print("action_replace = ", action_replace)
     # print("condition_replace = ", condition_replace)
     # print("target_replace = ", target_replace)
+    
     log_objects = []
     
     for folder_path, _, filenames in os.walk(input_folder):
@@ -30,7 +31,7 @@ def find_and_edit_files(input_folder, output_folder, target_filename, find_actio
                     current_file = file.read()
 
                 edited_file, log_objects = edit_file(relative_path, current_file, find_action, find_condition, find_target, action_replace, condition_replace, target_replace, log_objects)
-                log_objects = generate_log_structure(log_objects)
+                structured_log_objects = generate_log_structure(log_objects)
 
                 with open(output_path, 'w', encoding='utf-8') as output_file:
                     output_file.write(edited_file)
@@ -44,7 +45,7 @@ def find_and_edit_files(input_folder, output_folder, target_filename, find_actio
 
     log_json_path = os.path.join(output_folder, "log.json")
     with open(log_json_path, 'w', encoding='utf-8') as log_file:
-        json.dump(log_objects, log_file, indent=4)
+        json.dump(structured_log_objects, log_file, indent=4)
 
     print(f"Log written to {log_json_path}")
 
@@ -110,8 +111,11 @@ def edit_file(relative_path, file_content, find_action, find_condition, find_tar
             "replaced_target_type": f"{target_replace.value} ({target_replace.name})"
         }
 
+        # json_data = json.dumps(log_entry, indent=4)
+        # print(json_data)     
+
         log_objects.append(log_entry)
-     
+
     return edited_content, log_objects
 
 def generate_log_structure(log_objects):
