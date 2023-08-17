@@ -6,14 +6,14 @@ class Action(Enum):
     ADD_AUGMENT_UNUSED =                    0X40B8 # 16568
 
 class TargetCondition(Enum):
-    AUGMENT_EQUALS_ACCURACY_BOOST =         0x2002
-    AUGMENT_NOT_EQUALS_ACCURACY_BOOST =     0x2102
+    AUGMENT_ACCURACY_BOOST_IS_PRESENT =     0x2002
+    AUGMENT_ACCURACY_BOOST_IS_MISSING =     0x2102
 
-    AUGMENT_EQUALS_EVASION_BOOST =          0x2004
-    AUGMENT_NOT_EQUALS_EVASION_BOOST =      0x2104 # 8196
+    AUGMENT_EVASION_BOOST_IS_PRESENT =      0x2004
+    AUGMENT_EVASION_BOOST_IS_MISSING =      0x2104 # 8196
 
-    AUGMENT_EQUALS_UNUSED =                 0x2026 # 8230
-    AUGMENT_NOT_EQUALS_UNUSED =             0x2126 # 8486
+    AUGMENT_UNUSED_IS_PRESENT =             0x2026 # 8230
+    AUGMENT_UNUSED_IS_MISSING =             0x2126 # 8486
 
 class TargetType(Enum):
     NONE =                                  0x0

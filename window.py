@@ -52,8 +52,8 @@ class MainWindow(QMainWindow):
     def create_combo_box_set(self, layout, action_stretch, condition_stretch, target_stretch, default_values=False):
         enum_maps = {
             "Action": Action,
-            "Condition": TargetCondition,
-            "Target": TargetType
+            "Target Condition": TargetCondition,
+            "Target Type": TargetType
         }
 
         self.enum_name_to_value = {}
@@ -64,16 +64,16 @@ class MainWindow(QMainWindow):
         if default_values:
             original_defaults = {
                 "Action": Action.ADD_AUGMENT_ACCURACY_BOOST,
-                "Condition": TargetCondition.AUGMENT_NOT_EQUALS_ACCURACY_BOOST,
-                "Target": TargetType.SELF
+                "Target Condition": TargetCondition.AUGMENT_ACCURACY_BOOST_IS_MISSING,
+                "Target Type": TargetType.SELF
             }
         else:
             original_defaults = {}
 
         replace_defaults = {
             "Action": Action.ADD_AUGMENT_UNUSED,
-            "Condition": TargetCondition.AUGMENT_NOT_EQUALS_UNUSED,
-            "Target": TargetType.SELF
+            "Target Condition": TargetCondition.AUGMENT_UNUSED_IS_MISSING,
+            "Target Type": TargetType.SELF
         }
 
         combo_boxes = {}  # Dictionary to store combo boxes
@@ -97,10 +97,10 @@ class MainWindow(QMainWindow):
             if title == "Action":
                 layout.setColumnStretch(col, action_stretch)
                 combo_box.setMinimumWidth(int(self.width() * action_stretch / 100))
-            elif title == "Condition":
+            elif title == "Target Condition":
                 layout.setColumnStretch(col, condition_stretch)
                 combo_box.setMinimumWidth(int(self.width() * condition_stretch / 100))
-            elif title == "Target":
+            elif title == "Target Type":
                 layout.setColumnStretch(col, target_stretch)
                 combo_box.setMinimumWidth(int(self.width() * target_stretch / 100))
 
@@ -123,11 +123,11 @@ class MainWindow(QMainWindow):
         output_folder = "edited"
 
         find_action = self.get_enum_from_combo_box(self.combo_boxes_original["Action"], "Action")
-        find_condition = self.get_enum_from_combo_box(self.combo_boxes_original["Condition"], "Condition")
-        find_target = self.get_enum_from_combo_box(self.combo_boxes_original["Target"], "Target")
+        find_condition = self.get_enum_from_combo_box(self.combo_boxes_original["Target Condition"], "Target Condition")
+        find_target = self.get_enum_from_combo_box(self.combo_boxes_original["Target Type"], "Target Type")
         action_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Action"], "Action")
-        condition_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Condition"], "Condition")
-        target_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Target"], "Target")
+        condition_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Target Condition"], "Target Condition")
+        target_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Target Type"], "Target Type")
 
         if any(os.listdir(output_folder)):
             reply = QMessageBox.warning(
