@@ -4,13 +4,17 @@ import json
 import shutil
 from ai import Action, TargetCondition, TargetType
 
+script_pattern = re.compile(r'"Script (\d+)"')
+group_pattern = re.compile(r'"Group (\d+)"')
+entry_pattern = re.compile(r'"Entry (\d+)"')
+
 def find_and_edit_files(input_folder, output_folder, target_filename, find_action, find_condition, find_target, action_replace, condition_replace, target_replace):
-    print("find_action = ", find_action)
-    print("find_condition = ", find_condition)
-    print("find_target = ", find_target)
-    print("action_replace = ", action_replace)
-    print("condition_replace = ", condition_replace)
-    print("target_replace = ", target_replace)
+    # print("find_action = ", find_action)
+    # print("find_condition = ", find_condition)
+    # print("find_target = ", find_target)
+    # print("action_replace = ", action_replace)
+    # print("condition_replace = ", condition_replace)
+    # print("target_replace = ", target_replace)
     log_objects = []
     
     for folder_path, _, filenames in os.walk(input_folder):
@@ -25,7 +29,8 @@ def find_and_edit_files(input_folder, output_folder, target_filename, find_actio
                 with open(source_path, 'r', encoding='utf-8') as file:
                     current_file = file.read()
 
-                edited_file, log_objects = edit_file(current_file, source_path, input_folder, output_folder, find_action, find_condition, find_target, action_replace, condition_replace, target_replace, log_objects)
+                edited_file, log_objects = edit_file(relative_path, current_file, find_action, find_condition, find_target, action_replace, condition_replace, target_replace, log_objects)
+                log_objects = generate_log_structure(log_objects)
 
                 with open(output_path, 'w', encoding='utf-8') as output_file:
                     output_file.write(edited_file)
@@ -43,38 +48,47 @@ def find_and_edit_files(input_folder, output_folder, target_filename, find_actio
 
     print(f"Log written to {log_json_path}")
 
-def edit_file(file_content, source_path, input_folder, output_folder, find_action, find_condition, find_target, action_replace, condition_replace, target_replace, log_objects):
+def edit_file(relative_path, file_content, find_action, find_condition, find_target, action_replace, condition_replace, target_replace, log_objects):
     edited_content = file_content
 
     entry_pattern = re.compile(r'"Action": ' + str(find_action.value) + r',\s*"Action Parameter": \d+,\s*"Flags": \d+,\s*"(\d)\. Case": {\s*"Target Type": ' + str(find_target.value) + r',\s*"Target Condition": ' + str(find_condition.value) + r',\s*"Parameter": \d+\s*}', re.DOTALL)
     
-    matches = entry_pattern.finditer(edited_content)
-
-    log_entries_by_script_group_entry = {}
+    matches = entry_pattern.finditer(file_content)
 
     for match in matches:
-        case_number = match.group(1)
-        group_match = re.search(r'"Group (\d+)"', edited_content[:match.start()])
-        if group_match:
-            group_number = group_match.group(1)
-        else:
-            group_number = None
-        
-        script_match = re.search(r'"Script (\d+)"', edited_content[:match.start()])
-        if script_match:
-            script_number = script_match.group(1)
-        else:
-            script_number = None
-
-        entry_match = re.search(r'"Entry (\d+)"', edited_content[:match.start()])
-        if entry_match:
-            entry_number = entry_match.group(1)
-        else:
-            entry_number = None
-
         start = match.start()
         end = match.end()
-        
+
+        case_number = match.group(1)
+
+        # Searches for the Entry X in which the X. Case was found
+        entry_matches = list(re.finditer(r'"Entry (\d+)"', file_content[:start]))
+        if entry_matches:
+            entry_match = entry_matches[-1]
+            entry_number = entry_match.group(1)
+                
+            # Searches for the Group X in which the Entry X was found
+            group_matches = list(re.finditer(r'"Group (\d+)"', file_content[:entry_match.start()]))
+            if group_matches:
+                group_match = group_matches[-1]
+                group_number = group_match.group(1)
+
+                # Searches for the Script X in which the Group X was found
+                script_matches = list(re.finditer(r'"Script (\d+)"', file_content[:group_match.start()]))
+                if script_matches:
+                    script_number = script_matches[-1].group(1)
+                else:
+                    script_number = None
+
+            else:
+                group_number = None
+                script_number = None
+
+        else:
+            entry_number = None
+            group_number = None
+            script_number = None
+     
         replaced_content = match.group(0)
         replaced_content = replaced_content.replace(str(find_action.value), str(action_replace.value))
         replaced_content = replaced_content.replace(str(find_condition.value), str(condition_replace.value))
@@ -83,6 +97,9 @@ def edit_file(file_content, source_path, input_folder, output_folder, find_actio
         edited_content = edited_content[:start] + replaced_content + edited_content[end:]
 
         log_entry = {
+            "path": relative_path,
+            "script": f"Script {script_number}",
+            "group": f"Group {group_number}",
             "entry": f"Entry {entry_number}",
             "case": f"{case_number}. Case",
             "original_action": f"{find_action.value} ({find_action.name})",
@@ -93,33 +110,60 @@ def edit_file(file_content, source_path, input_folder, output_folder, find_actio
             "replaced_target_type": f"{target_replace.value} ({target_replace.name})"
         }
 
-        script_group_entry_key = (script_number, group_number, entry_number)
-        if script_group_entry_key not in log_entries_by_script_group_entry:
-            log_entries_by_script_group_entry[script_group_entry_key] = []
-        log_entries_by_script_group_entry[script_group_entry_key].append(log_entry)
-
-    log_objects = []
-    for (script_number, group_number, entry_number), entries in log_entries_by_script_group_entry.items():
-        log_group = {
-            "group": f"Group {group_number}",
-            "entries": entries
-        }
-
-        script_group_key = (script_number, group_number)
-        found = False
-        for script_group in log_objects:
-            if script_group["script"] == f"Script {script_number}":
-                script_group["groups"].append(log_group)
-                found = True
-                break
-        if not found:
-            log_objects.append({
-                "path": source_path.replace(input_folder, output_folder),
-                "script": f"Script {script_number}",
-                "groups": [log_group]
-            })
-
+        log_objects.append(log_entry)
+     
     return edited_content, log_objects
+
+def generate_log_structure(log_objects):
+    paths = {}
+
+    for log_entry in log_objects:
+        path = log_entry["path"]
+        script_name = log_entry["script"]
+        group_name = log_entry["group"]
+        entry_name = log_entry["entry"]
+
+        if path not in paths:
+            paths[path] = {}
+
+        if script_name not in paths[path]:
+            paths[path][script_name] = {}
+
+        if group_name not in paths[path][script_name]:
+            paths[path][script_name][group_name] = []
+
+        paths[path][script_name][group_name].append({
+            "entry": entry_name,
+            "case": log_entry["case"],
+            "original_action": log_entry["original_action"],
+            "original_condition_type": log_entry["original_condition_type"],
+            "original_target_type": log_entry["original_target_type"],
+            "replaced_action": log_entry["replaced_action"],
+            "replaced_condition_type": log_entry["replaced_condition_type"],
+            "replaced_target_type": log_entry["replaced_target_type"]
+        })
+
+    result = []
+    for path, scripts in paths.items():
+        path_entry = {
+            "path": path,
+            "scripts": []
+        }
+        for script_name, groups in scripts.items():
+            script = {
+                "script": script_name,
+                "groups": []
+            }
+            for group_name, entries in groups.items():
+                group = {
+                    "group": group_name,
+                    "entries": entries
+                }
+                script["groups"].append(group)
+            path_entry["scripts"].append(script)
+        result.append(path_entry)
+
+    return result
 
 if __name__ == "__main__":
     input_folder = "unpacked" # Replace with the actual root folder path
