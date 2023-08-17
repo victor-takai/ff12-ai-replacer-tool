@@ -2,7 +2,9 @@ import os
 import re
 import json
 import shutil
-from ai import Action, TargetCondition, TargetType
+from action_ai import Action
+from target_condition_ai import TargetCondition
+from ai import TargetType
 
 script_pattern = re.compile(r'"Script (\d+)"')
 group_pattern = re.compile(r'"Group (\d+)"')

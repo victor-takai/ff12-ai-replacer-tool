@@ -3,7 +3,9 @@ import sys
 import os
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QVBoxLayout, QFrame, QGridLayout, QPushButton, QComboBox, QLabel, QMessageBox
 from PyQt5.QtCore import Qt
-from ai import Action, TargetCondition, TargetType
+from action_ai import Action
+from target_condition_ai import TargetCondition
+from ai import TargetType
 from main import find_and_edit_files
 from version import __version__
 
