@@ -268,8 +268,8 @@ class TargetCondition(Enum):
     AUGMENT_TREAD_LIGHTLY_IS_PRESENT =                  0x2025 # 8229
     AUGMENT_TREAD_LIGHTLY_IS_MISSING =                  0x2125 # 8485
 
-    AUGMENT_UNUSED_IS_PRESENT =                         0x2026 # 8230
-    AUGMENT_UNUSED_IS_MISSING =                         0x2126 # 8486
+    AUGMENT_UNUSED_0X26_IS_PRESENT =                    0x2026 # 8230
+    AUGMENT_UNUSED_0X26_IS_MISSING =                    0x2126 # 8486
 
     AUGMENT_EMPTINESS_IS_PRESENT =                      0x2027 # 8231
     AUGMENT_EMPTINESS_IS_MISSING =                      0x2127 # 8487
