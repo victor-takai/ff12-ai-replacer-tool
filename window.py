@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QVBoxLayout, QFr
 from PyQt5.QtCore import Qt
 from action_ai import Action
 from target_condition_ai import TargetCondition
-from ai import TargetType
+from target_type_ai import TargetType
 from main import find_and_edit_files
 from version import __version__
 
@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
 
         replace_defaults = {
             "Action": Action.ADD_AUGMENT_UNUSED,
-            "Target Condition": TargetCondition.AUGMENT_UNUSED_IS_MISSING,
+            "Target Condition": TargetCondition.AUGMENT_UNUSED_0X26_IS_MISSING,
             "Target Type": TargetType.SELF
         }
 
