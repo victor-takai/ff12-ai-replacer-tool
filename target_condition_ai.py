@@ -537,3 +537,97 @@ class TargetCondition(Enum):
 
     AUGMENT_PHOENIX_LORE_1_IS_PRESENT =                 0x207F # 8319
     AUGMENT_PHOENIX_LORE_1_IS_MISSING =                 0x217F # 8575
+
+    #========================= HP =========================#
+
+    HP_GREATER_OR_EQUAL_90_PERCENT =            0x0E00 # 3584
+    HP_LESSER_OR_EQUAL_90_PERCENT =             0x0F00 # 3840
+
+    HP_GREATER_OR_EQUAL_80_PERCENT =            0x0E01 # 3585
+    HP_LESSER_OR_EQUAL_80_PERCENT =             0x0F01 # 3841
+
+    HP_GREATER_OR_EQUAL_70_PERCENT =            0x0E02 # 3586
+    HP_LESSER_OR_EQUAL_70_PERCENT =             0x0F02 # 3842
+
+    HP_GREATER_OR_EQUAL_60_PERCENT =            0x0E03 # 3587
+    HP_LESSER_OR_EQUAL_60_PERCENT =             0x0F03 # 3843
+
+    HP_GREATER_OR_EQUAL_50_PERCENT =            0x0E04 # 3588
+    HP_LESSER_OR_EQUAL_50_PERCENT =             0x0F04 # 3844
+
+    HP_GREATER_OR_EQUAL_40_PERCENT =            0x0E05 # 3589
+    HP_LESSER_OR_EQUAL_40_PERCENT =             0x0F05 # 3845
+
+    HP_GREATER_OR_EQUAL_30_PERCENT =            0x0E06 # 3590
+    HP_LESSER_OR_EQUAL_30_PERCENT =             0x0F06 # 3846
+
+    HP_GREATER_OR_EQUAL_20_PERCENT =            0x0E07 # 3591
+    HP_LESSER_OR_EQUAL_20_PERCENT =             0x0F07 # 3847
+
+    HP_GREATER_OR_EQUAL_10_PERCENT =            0x0E08 # 3592
+    HP_LESSER_OR_EQUAL_10_PERCENT =             0x0F08 # 3848
+
+    HP_GREATER_OR_EQUAL_0_PERCENT=              0x0E09 # 3593
+    HP_LESSER_OR_EQUAL_0_PERCENT=               0x0F09 # 3849
+    
+    MAX_HP_GREATER_OR_EQUAL_500 =                       0x1000 # 4096
+    MAX_HP_LESSER_OR_EQUAL_500 =                        0x1100 # 4352
+
+    MAX_HP_GREATER_OR_EQUAL_1000 =                      0x1001 # 4097
+    MAX_HP_LESSER_OR_EQUAL_1000 =                       0x1101 # 4353
+
+    MAX_HP_GREATER_OR_EQUAL_2000 =                      0x1002 # 4098
+    MAX_HP_LESSER_OR_EQUAL_2000 =                       0x1102 # 4354
+
+    MAX_HP_GREATER_OR_EQUAL_5000 =                      0x1003 # 4099
+    MAX_HP_LESSER_OR_EQUAL_5000 =                       0x1103 # 4355
+
+    MAX_HP_GREATER_OR_EQUAL_10000 =                     0x1004 # 4100
+    MAX_HP_LESSER_OR_EQUAL_10000 =                      0x1104 # 4356
+
+    MAX_HP_GREATER_OR_EQUAL_20000 =                     0x1005 # 4101
+    MAX_HP_LESSER_OR_EQUAL_20000 =                      0x1105 # 4357
+
+    MAX_HP_GREATER_OR_EQUAL_30000 =                     0x1006 # 4102
+    MAX_HP_LESSER_OR_EQUAL_30000 =                      0x1106 # 4358
+
+    MAX_HP_GREATER_OR_EQUAL_50000 =                     0x1007 # 4103
+    MAX_HP_LESSER_OR_EQUAL_50000 =                      0x1107 # 4359
+
+    #========================= ELEMENTS =========================#
+
+    IS_WEAK_TO_FIRE =                                   0x1400 # 5120
+    IS_WEAK_TO_LIGHTNING =                              0x1401 # 5121
+    IS_WEAK_TO_ICE =                                    0x1402 # 5122
+    IS_WEAK_TO_EARTH =                                  0x1403 # 5123
+    IS_WEAK_TO_WATER =                                  0x1404 # 5124
+    IS_WEAK_TO_WIND =                                   0x1405 # 5125
+    IS_WEAK_TO_HOLY =                                   0x1406 # 5126
+    IS_WEAK_TO_DARK =                                   0x1407 # 5127
+    
+    IS_HALF_WEAK_TO_WATER =                             0x1500 # 5376
+    IS_HALF_WEAK_TO_WIND =                              0x1501 # 5377
+    IS_HALF_WEAK_TO_HOLY =                              0x1502 # 5378
+    IS_HALF_WEAK_TO_DARK =                              0x1503 # 5379
+    IS_HALF_WEAK_TO_FIRE =                              0x1504 # 5380
+    IS_HALF_WEAK_TO_LIGHTNING =                         0x1505 # 5381
+    IS_HALF_WEAK_TO_ICE =                               0x1506 # 5382
+    IS_HALF_WEAK_TO_EARTH =                             0x1507 # 5383
+    
+    ABSORBS_FIRE =                                      0x1600 # 5632
+    ABSORBS_LIGHTNING =                                 0x1601 # 5633
+    ABSORBS_ICE =                                       0x1602 # 5634
+    ABSORBS_EARTH =                                     0x1603 # 5635
+    ABSORBS_WATER =                                     0x1604 # 5636
+    ABSORBS_WIND =                                      0x1605 # 5637
+    ABSORBS_HOLY =                                      0x1606 # 5638
+    ABSORBS_DARK =                                      0x1607 # 5639
+    
+    VULNERABLE_TO_FIRE =                                0x1700 # 5888
+    VULNERABLE_TO_LIGHTNING =                           0x1701 # 5889
+    VULNERABLE_TO_ICE =                                 0x1702 # 5890
+    VULNERABLE_TO_EARTH =                               0x1703 # 5891
+    VULNERABLE_TO_WATER =                               0x1704 # 5892
+    VULNERABLE_TO_WIND =                                0x1705 # 5893
+    VULNERABLE_TO_HOLY =                                0x1706 # 5894
+    VULNERABLE_TO_DARK =                                0x1707 # 5895
