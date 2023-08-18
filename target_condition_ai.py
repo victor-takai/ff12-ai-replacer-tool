@@ -1,156 +1,158 @@
 from enum import Enum
 
 class TargetCondition(Enum):
-    HIGHEST_ATTACK_POWER =          0x0200 # 512
-    LOWEST_ATTACK_POWER =           0x0300 # 768
+    #========================= Character Stats =========================#
 
-    HIGHEST_DEFENSE =               0x0201 # 513
-    LOWEST_DEFENSE =                0x0301 # 769
+    HIGHEST_ATTACK_POWER =                              0x0200 # 512
+    LOWEST_ATTACK_POWER =                               0x0300 # 768
 
-    # UNUSED_0X0202 =                 0x0202 # 514
+    HIGHEST_DEFENSE =                                   0x0201 # 513
+    LOWEST_DEFENSE =                                    0x0301 # 769
 
-    HIGHEST_MAGICK_RESIST =         0x0203 # 515
-    LOWEST_MAGICK_RESIST =          0x0303 # 771
+    # UNUSED_0X0202 =                                     0x0202 # 514
 
-    HIGHEST_CURRENT_HP =            0x0204 # 516
-    LOWEST_CURRENT_HP =             0x0304 # 772
+    HIGHEST_MAGICK_RESIST =                             0x0203 # 515
+    LOWEST_MAGICK_RESIST =                              0x0303 # 771
 
-    HIGHEST_CURRENT_MP =            0x0205 # 517
-    LOWEST_CURRENT_MP =             0x0305 # 773
+    HIGHEST_CURRENT_HP =                                0x0204 # 516
+    LOWEST_CURRENT_HP =                                 0x0304 # 772
 
-    HIGHEST_LEVEL =                 0x0206 # 518
-    LOWEST_LEVEL =                  0x0306 # 774
+    HIGHEST_CURRENT_MP =                                0x0205 # 517
+    LOWEST_CURRENT_MP =                                 0x0305 # 773
 
-    FURTHEST =                      0x0207 # 519
-    NEAREST =                       0x0307 # 775
+    HIGHEST_LEVEL =                                     0x0206 # 518
+    LOWEST_LEVEL =                                      0x0306 # 774
 
-    HIGHEST_ATTACKER_COUNT =        0x0208 # 520
-    LOWEST_ATTACKER_COUNT =         0x0308 # 776
+    FURTHEST =                                          0x0207 # 519
+    NEAREST =                                           0x0307 # 775
 
-    HIGHEST_MAX_HP =                0x0209 # 521
-    LOWEST_MAX_HP =                 0x0309 # 777
+    HIGHEST_ATTACKER_COUNT =                            0x0208 # 520
+    LOWEST_ATTACKER_COUNT =                             0x0308 # 776
 
-    HIGHEST_MAX_MP =                0x020A # 522
-    LOWEST_MAX_MP =                 0x030A # 778
+    HIGHEST_MAX_HP =                                    0x0209 # 521
+    LOWEST_MAX_HP =                                     0x0309 # 777
 
-    # UNUSED_0X020B =                 0x020B # 523
+    HIGHEST_MAX_MP =                                    0x020A # 522
+    LOWEST_MAX_MP =                                     0x030A # 778
 
-    HIGHEST_STRENGTH =              0x020C # 524
-    LOWEST_STRENGTH =               0x030C # 780
+    # UNUSED_0X020B =                                     0x020B # 523
 
-    HIGHEST_MAGICK_POWER =          0x020D # 525
-    LOWEST_MAGICK_POWER =           0x030D # 781
+    HIGHEST_STRENGTH =                                  0x020C # 524
+    LOWEST_STRENGTH =                                   0x030C # 780
 
-    HIGHEST_VITALITY =              0x020E # 526
-    LOWEST_VITALITY =               0x030E # 782
+    HIGHEST_MAGICK_POWER =                              0x020D # 525
+    LOWEST_MAGICK_POWER =                               0x030D # 781
 
-    HIGHEST_SPEED =                 0x020F # 527
-    LOWEST_SPEED =                  0x030F # 783
+    HIGHEST_VITALITY =                                  0x020E # 526
+    LOWEST_VITALITY =                                   0x030E # 782
 
-    # UNUSED_0X0210 =                 0x0210 # 528
+    HIGHEST_SPEED =                                     0x020F # 527
+    LOWEST_SPEED =                                      0x030F # 783
 
-    HIGHEST_ENMITY =                0x0211 # 529
-    LOWEST_ENMITY =                 0x0311 # 785
+    # UNUSED_0X0210 =                                     0x0210 # 528
 
-    # UNUSED_0X0400 =                 0x0400 # 1024
+    HIGHEST_ENMITY =                                    0x0211 # 529
+    LOWEST_ENMITY =                                     0x0311 # 785
+
+    # UNUSED_0X0400 =                                     0x0400 # 1024
 
     #========================= Status Effects =========================#
 
-    STATUS_EFFECT_KO_IS_PRESENT =                   0x0600 # 1536
-    STATUS_EFFECT_KO_IS_MISSING =                   0x0700 # 1792
+    STATUS_EFFECT_KO_IS_PRESENT =                       0x0600 # 1536
+    STATUS_EFFECT_KO_IS_MISSING =                       0x0700 # 1792
 
-    STATUS_EFFECT_STONE_IS_PRESENT =                0x0601 # 1537
-    STATUS_EFFECT_STONE_IS_MISSING =                0x0701 # 1793
+    STATUS_EFFECT_STONE_IS_PRESENT =                    0x0601 # 1537
+    STATUS_EFFECT_STONE_IS_MISSING =                    0x0701 # 1793
 
-    STATUS_EFFECT_PETRIFY_IS_PRESENT =              0x0602 # 1538
-    STATUS_EFFECT_PETRIFY_IS_MISSING =              0x0702 # 1794
+    STATUS_EFFECT_PETRIFY_IS_PRESENT =                  0x0602 # 1538
+    STATUS_EFFECT_PETRIFY_IS_MISSING =                  0x0702 # 1794
 
-    STATUS_EFFECT_STOP_IS_PRESENT =                 0x0603 # 1539
-    STATUS_EFFECT_STOP_IS_MISSING =                 0x0703 # 1795
+    STATUS_EFFECT_STOP_IS_PRESENT =                     0x0603 # 1539
+    STATUS_EFFECT_STOP_IS_MISSING =                     0x0703 # 1795
 
-    STATUS_EFFECT_SLEEP_IS_PRESENT =                0x0604 # 1540
-    STATUS_EFFECT_SLEEP_IS_MISSING =                0x0704 # 1796
+    STATUS_EFFECT_SLEEP_IS_PRESENT =                    0x0604 # 1540
+    STATUS_EFFECT_SLEEP_IS_MISSING =                    0x0704 # 1796
 
-    STATUS_EFFECT_CONFUSE_IS_PRESENT =              0x0605 # 1541
-    STATUS_EFFECT_CONFUSE_IS_MISSING =              0x0705 # 1797
+    STATUS_EFFECT_CONFUSE_IS_PRESENT =                  0x0605 # 1541
+    STATUS_EFFECT_CONFUSE_IS_MISSING =                  0x0705 # 1797
 
-    STATUS_EFFECT_DOOM_IS_PRESENT =                 0x0606 # 1542
-    STATUS_EFFECT_DOOM_IS_MISSING =                 0x0706 # 1798
+    STATUS_EFFECT_DOOM_IS_PRESENT =                     0x0606 # 1542
+    STATUS_EFFECT_DOOM_IS_MISSING =                     0x0706 # 1798
 
-    STATUS_EFFECT_BLIND_IS_PRESENT =                0x0607 # 1543
-    STATUS_EFFECT_BLIND_IS_MISSING =                0x0707 # 1799
+    STATUS_EFFECT_BLIND_IS_PRESENT =                    0x0607 # 1543
+    STATUS_EFFECT_BLIND_IS_MISSING =                    0x0707 # 1799
 
-    STATUS_EFFECT_POISON_IS_PRESENT =               0x0608 # 1544
-    STATUS_EFFECT_POISON_IS_MISSING =               0x0708 # 1800
+    STATUS_EFFECT_POISON_IS_PRESENT =                   0x0608 # 1544
+    STATUS_EFFECT_POISON_IS_MISSING =                   0x0708 # 1800
 
-    STATUS_EFFECT_SILENCE_IS_PRESENT =              0x0609 # 1545
-    STATUS_EFFECT_SILENCE_IS_MISSING =              0x0709 # 1801
+    STATUS_EFFECT_SILENCE_IS_PRESENT =                  0x0609 # 1545
+    STATUS_EFFECT_SILENCE_IS_MISSING =                  0x0709 # 1801
 
-    STATUS_EFFECT_SAP_IS_PRESENT =                  0x060A # 1546
-    STATUS_EFFECT_SAP_IS_MISSING =                  0x070A # 1802
+    STATUS_EFFECT_SAP_IS_PRESENT =                      0x060A # 1546
+    STATUS_EFFECT_SAP_IS_MISSING =                      0x070A # 1802
 
-    STATUS_EFFECT_OIL_IS_PRESENT =                  0x060B # 1547
-    STATUS_EFFECT_OIL_IS_MISSING =                  0x070B # 1803
+    STATUS_EFFECT_OIL_IS_PRESENT =                      0x060B # 1547
+    STATUS_EFFECT_OIL_IS_MISSING =                      0x070B # 1803
 
-    STATUS_EFFECT_REVERSE_IS_PRESENT =              0x060C # 1548
-    STATUS_EFFECT_REVERSE_IS_MISSING =              0x070C # 1804
+    STATUS_EFFECT_REVERSE_IS_PRESENT =                  0x060C # 1548
+    STATUS_EFFECT_REVERSE_IS_MISSING =                  0x070C # 1804
 
-    STATUS_EFFECT_DISABLE_IS_PRESENT =              0x060D # 1549
-    STATUS_EFFECT_DISABLE_IS_MISSING =              0x070D # 1805
+    STATUS_EFFECT_DISABLE_IS_PRESENT =                  0x060D # 1549
+    STATUS_EFFECT_DISABLE_IS_MISSING =                  0x070D # 1805
 
-    STATUS_EFFECT_IMMOBOLIZE_IS_PRESENT =           0x060E # 1550
-    STATUS_EFFECT_IMMOBOLIZE_IS_MISSING =           0x070E # 1806
+    STATUS_EFFECT_IMMOBOLIZE_IS_PRESENT =               0x060E # 1550
+    STATUS_EFFECT_IMMOBOLIZE_IS_MISSING =               0x070E # 1806
 
-    STATUS_EFFECT_SLOW_IS_PRESENT =                 0x060F # 1551
-    STATUS_EFFECT_SLOW_IS_MISSING =                 0x070F # 1807
+    STATUS_EFFECT_SLOW_IS_PRESENT =                     0x060F # 1551
+    STATUS_EFFECT_SLOW_IS_MISSING =                     0x070F # 1807
 
-    STATUS_EFFECT_DISEASE_IS_PRESENT =              0x0610 # 1552
-    STATUS_EFFECT_DISEASE_IS_MISSING =              0x0710 # 1808
+    STATUS_EFFECT_DISEASE_IS_PRESENT =                  0x0610 # 1552
+    STATUS_EFFECT_DISEASE_IS_MISSING =                  0x0710 # 1808
 
-    STATUS_EFFECT_LURE_IS_PRESENT =                 0x0611 # 1553
-    STATUS_EFFECT_LURE_IS_MISSING =                 0x0711 # 1809
+    STATUS_EFFECT_LURE_IS_PRESENT =                     0x0611 # 1553
+    STATUS_EFFECT_LURE_IS_MISSING =                     0x0711 # 1809
 
-    STATUS_EFFECT_PROTECT_IS_PRESENT =              0x0612 # 1554
-    STATUS_EFFECT_PROTECT_IS_MISSING =              0x0712 # 1810
+    STATUS_EFFECT_PROTECT_IS_PRESENT =                  0x0612 # 1554
+    STATUS_EFFECT_PROTECT_IS_MISSING =                  0x0712 # 1810
 
-    STATUS_EFFECT_SHELL_IS_PRESENT =                0x0613 # 1555
-    STATUS_EFFECT_SHELL_IS_MISSING =                0x0713 # 1811
+    STATUS_EFFECT_SHELL_IS_PRESENT =                    0x0613 # 1555
+    STATUS_EFFECT_SHELL_IS_MISSING =                    0x0713 # 1811
 
-    STATUS_EFFECT_HASTE_IS_PRESENT =                0x0614 # 1556
-    STATUS_EFFECT_HASTE_IS_MISSING =                0x0714 # 1812
+    STATUS_EFFECT_HASTE_IS_PRESENT =                    0x0614 # 1556
+    STATUS_EFFECT_HASTE_IS_MISSING =                    0x0714 # 1812
 
-    STATUS_EFFECT_BRAVERY_IS_PRESENT =              0x0615 # 1557
-    STATUS_EFFECT_BRAVERY_IS_MISSING =              0x0715 # 1813
+    STATUS_EFFECT_BRAVERY_IS_PRESENT =                  0x0615 # 1557
+    STATUS_EFFECT_BRAVERY_IS_MISSING =                  0x0715 # 1813
 
-    STATUS_EFFECT_FAITH_IS_PRESENT =                0x0616 # 1558
-    STATUS_EFFECT_FAITH_IS_MISSING =                0x0716 # 1814
+    STATUS_EFFECT_FAITH_IS_PRESENT =                    0x0616 # 1558
+    STATUS_EFFECT_FAITH_IS_MISSING =                    0x0716 # 1814
 
-    STATUS_EFFECT_REFLECT_IS_PRESENT =              0x0617 # 1559
-    STATUS_EFFECT_REFLECT_IS_MISSING =              0x0717 # 1815
+    STATUS_EFFECT_REFLECT_IS_PRESENT =                  0x0617 # 1559
+    STATUS_EFFECT_REFLECT_IS_MISSING =                  0x0717 # 1815
 
-    STATUS_EFFECT_INVISIBLE_IS_PRESENT =            0x0618 # 1560
-    STATUS_EFFECT_INVISIBLE_IS_MISSING =            0x0718 # 1816
+    STATUS_EFFECT_INVISIBLE_IS_PRESENT =                0x0618 # 1560
+    STATUS_EFFECT_INVISIBLE_IS_MISSING =                0x0718 # 1816
 
-    STATUS_EFFECT_REGEN_IS_PRESENT =                0x0619 # 1561
-    STATUS_EFFECT_REGEN_IS_MISSING =                0x0719 # 1817
+    STATUS_EFFECT_REGEN_IS_PRESENT =                    0x0619 # 1561
+    STATUS_EFFECT_REGEN_IS_MISSING =                    0x0719 # 1817
 
-    STATUS_EFFECT_FLOAT_IS_PRESENT =                0x061A # 1562
-    STATUS_EFFECT_FLOAT_IS_MISSING =                0x071A # 1818
+    STATUS_EFFECT_FLOAT_IS_PRESENT =                    0x061A # 1562
+    STATUS_EFFECT_FLOAT_IS_MISSING =                    0x071A # 1818
 
-    STATUS_EFFECT_BERSERK_IS_PRESENT =              0x061B # 1563
-    STATUS_EFFECT_BERSERK_IS_MISSING =              0x071B # 1819
+    STATUS_EFFECT_BERSERK_IS_PRESENT =                  0x061B # 1563
+    STATUS_EFFECT_BERSERK_IS_MISSING =                  0x071B # 1819
 
-    STATUS_EFFECT_BUBBLE_IS_PRESENT =               0x061C # 1564
-    STATUS_EFFECT_BUBBLE_IS_MISSING =               0x071C # 1820
+    STATUS_EFFECT_BUBBLE_IS_PRESENT =                   0x061C # 1564
+    STATUS_EFFECT_BUBBLE_IS_MISSING =                   0x071C # 1820
 
-    STATUS_EFFECT_HP_CRITICAL_IS_PRESENT =          0x061D # 1565
-    STATUS_EFFECT_HP_CRITICAL_IS_MISSING =          0x071D # 1821
+    STATUS_EFFECT_HP_CRITICAL_IS_PRESENT =              0x061D # 1565
+    STATUS_EFFECT_HP_CRITICAL_IS_MISSING =              0x071D # 1821
 
-    STATUS_EFFECT_LIBRA_IS_PRESENT =                0x061E # 1566
-    STATUS_EFFECT_LIBRA_IS_MISSING =                0x071E # 1822
+    STATUS_EFFECT_LIBRA_IS_PRESENT =                    0x061E # 1566
+    STATUS_EFFECT_LIBRA_IS_MISSING =                    0x071E # 1822
 
-    STATUS_EFFECT_X_ZONE_IS_PRESENT =               0x061F # 1567
-    STATUS_EFFECT_X_ZONE_IS_MISSING =               0x071F # 1823
+    STATUS_EFFECT_X_ZONE_IS_PRESENT =                   0x061F # 1567
+    STATUS_EFFECT_X_ZONE_IS_MISSING =                   0x071F # 1823
 
     #========================= AUGMENTS =========================#
 
@@ -540,35 +542,35 @@ class TargetCondition(Enum):
 
     #========================= HP =========================#
 
-    HP_GREATER_OR_EQUAL_90_PERCENT =            0x0E00 # 3584
-    HP_LESSER_OR_EQUAL_90_PERCENT =             0x0F00 # 3840
+    HP_GREATER_OR_EQUAL_90_PERCENT =                    0x0E00 # 3584
+    HP_LESSER_OR_EQUAL_90_PERCENT =                     0x0F00 # 3840
 
-    HP_GREATER_OR_EQUAL_80_PERCENT =            0x0E01 # 3585
-    HP_LESSER_OR_EQUAL_80_PERCENT =             0x0F01 # 3841
+    HP_GREATER_OR_EQUAL_80_PERCENT =                    0x0E01 # 3585
+    HP_LESSER_OR_EQUAL_80_PERCENT =                     0x0F01 # 3841
 
-    HP_GREATER_OR_EQUAL_70_PERCENT =            0x0E02 # 3586
-    HP_LESSER_OR_EQUAL_70_PERCENT =             0x0F02 # 3842
+    HP_GREATER_OR_EQUAL_70_PERCENT =                    0x0E02 # 3586
+    HP_LESSER_OR_EQUAL_70_PERCENT =                     0x0F02 # 3842
 
-    HP_GREATER_OR_EQUAL_60_PERCENT =            0x0E03 # 3587
-    HP_LESSER_OR_EQUAL_60_PERCENT =             0x0F03 # 3843
+    HP_GREATER_OR_EQUAL_60_PERCENT =                    0x0E03 # 3587
+    HP_LESSER_OR_EQUAL_60_PERCENT =                     0x0F03 # 3843
 
-    HP_GREATER_OR_EQUAL_50_PERCENT =            0x0E04 # 3588
-    HP_LESSER_OR_EQUAL_50_PERCENT =             0x0F04 # 3844
+    HP_GREATER_OR_EQUAL_50_PERCENT =                    0x0E04 # 3588
+    HP_LESSER_OR_EQUAL_50_PERCENT =                     0x0F04 # 3844
 
-    HP_GREATER_OR_EQUAL_40_PERCENT =            0x0E05 # 3589
-    HP_LESSER_OR_EQUAL_40_PERCENT =             0x0F05 # 3845
+    HP_GREATER_OR_EQUAL_40_PERCENT =                    0x0E05 # 3589
+    HP_LESSER_OR_EQUAL_40_PERCENT =                     0x0F05 # 3845
 
-    HP_GREATER_OR_EQUAL_30_PERCENT =            0x0E06 # 3590
-    HP_LESSER_OR_EQUAL_30_PERCENT =             0x0F06 # 3846
+    HP_GREATER_OR_EQUAL_30_PERCENT =                    0x0E06 # 3590
+    HP_LESSER_OR_EQUAL_30_PERCENT =                     0x0F06 # 3846
 
-    HP_GREATER_OR_EQUAL_20_PERCENT =            0x0E07 # 3591
-    HP_LESSER_OR_EQUAL_20_PERCENT =             0x0F07 # 3847
+    HP_GREATER_OR_EQUAL_20_PERCENT =                    0x0E07 # 3591
+    HP_LESSER_OR_EQUAL_20_PERCENT =                     0x0F07 # 3847
 
-    HP_GREATER_OR_EQUAL_10_PERCENT =            0x0E08 # 3592
-    HP_LESSER_OR_EQUAL_10_PERCENT =             0x0F08 # 3848
+    HP_GREATER_OR_EQUAL_10_PERCENT =                    0x0E08 # 3592
+    HP_LESSER_OR_EQUAL_10_PERCENT =                     0x0F08 # 3848
 
-    HP_GREATER_OR_EQUAL_0_PERCENT=              0x0E09 # 3593
-    HP_LESSER_OR_EQUAL_0_PERCENT=               0x0F09 # 3849
+    HP_GREATER_OR_EQUAL_0_PERCENT=                      0x0E09 # 3593
+    HP_LESSER_OR_EQUAL_0_PERCENT=                       0x0F09 # 3849
     
     MAX_HP_GREATER_OR_EQUAL_500 =                       0x1000 # 4096
     MAX_HP_LESSER_OR_EQUAL_500 =                        0x1100 # 4352

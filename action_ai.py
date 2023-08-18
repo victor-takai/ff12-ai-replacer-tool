@@ -1,6 +1,8 @@
 from enum import Enum
 
 class Action(Enum):
+    #========================= Magicks/Technicks/Items =========================#
+
     CURE =                                      0x0000 #  0	
     BLINDNA =                                   0x0001 #  1	
     VOX =                                       0x0002 #  2	

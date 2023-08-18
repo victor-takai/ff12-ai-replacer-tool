@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
             original_defaults = {}
 
         replace_defaults = {
-            "Action": Action.ADD_AUGMENT_UNUSED,
+            "Action": Action.ADD_AUGMENT_UNUSED_0X26,
             "Target Condition": TargetCondition.AUGMENT_UNUSED_0X26_IS_MISSING,
             "Target Type": TargetType.SELF
         }
