@@ -625,11 +625,11 @@ class TargetCondition(Enum):
     ABSORBS_HOLY =                                      0x1606 # 5638
     ABSORBS_DARK =                                      0x1607 # 5639
     
-    VULNERABLE_TO_FIRE =                                0x1700 # 5888
-    VULNERABLE_TO_LIGHTNING =                           0x1701 # 5889
-    VULNERABLE_TO_ICE =                                 0x1702 # 5890
-    VULNERABLE_TO_EARTH =                               0x1703 # 5891
-    VULNERABLE_TO_WATER =                               0x1704 # 5892
-    VULNERABLE_TO_WIND =                                0x1705 # 5893
-    VULNERABLE_TO_HOLY =                                0x1706 # 5894
-    VULNERABLE_TO_DARK =                                0x1707 # 5895
+    IS_VULNERABLE_TO_FIRE =                             0x1700 # 5888
+    IS_VULNERABLE_TO_LIGHTNING =                        0x1701 # 5889
+    IS_VULNERABLE_TO_ICE =                              0x1702 # 5890
+    IS_VULNERABLE_TO_EARTH =                            0x1703 # 5891
+    IS_VULNERABLE_TO_WATER =                            0x1704 # 5892
+    IS_VULNERABLE_TO_WIND =                             0x1705 # 5893
+    IS_VULNERABLE_TO_HOLY =                             0x1706 # 5894
+    IS_VULNERABLE_TO_DARK =                             0x1707 # 5895
