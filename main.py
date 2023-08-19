@@ -178,7 +178,7 @@ if __name__ == "__main__":
     find_action = Action.ADD_AUGMENT_EVASION_BOOST
     find_condition = TargetCondition.AUGMENT_EVASION_BOOST_IS_MISSING
     find_target = TargetType.SELF
-    action_replace = Action.ADD_AUGMENT_UNUSED
+    action_replace = Action.ADD_AUGMENT_UNUSED_0X26
     condition_replace = TargetCondition.AUGMENT_UNUSED_0X26_IS_MISSING
     target_replace = TargetType.SELF
 
