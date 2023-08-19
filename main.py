@@ -176,10 +176,10 @@ if __name__ == "__main__":
     output_folder = "edited" # Replace with the output folder path
     target_filename = "section_003.json"
     find_action = Action.ADD_AUGMENT_EVASION_BOOST
-    find_condition = TargetCondition.AUGMENT_EVASION_BOOST_IS_MISSING
+    find_condition = TargetCondition.IS_AUGMENT_EVASION_BOOST_MISSING
     find_target = TargetType.SELF
     action_replace = Action.ADD_AUGMENT_UNUSED_0X26
-    condition_replace = TargetCondition.AUGMENT_UNUSED_0X26_IS_MISSING
+    condition_replace = TargetCondition.IS_AUGMENT_UNUSED_0X26_MISSING
     target_replace = TargetType.SELF
 
     find_and_edit_files(input_folder, output_folder, target_filename, find_action, find_condition, find_target, action_replace, condition_replace, target_replace)

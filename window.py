@@ -66,7 +66,7 @@ class MainWindow(QMainWindow):
         if default_values:
             original_defaults = {
                 "Action": Action.ADD_AUGMENT_ACCURACY_BOOST,
-                "Target Condition": TargetCondition.AUGMENT_ACCURACY_BOOST_IS_MISSING,
+                "Target Condition": TargetCondition.IS_AUGMENT_ACCURACY_BOOST_MISSING,
                 "Target Type": TargetType.SELF
             }
         else:
@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
 
         replace_defaults = {
             "Action": Action.ADD_AUGMENT_UNUSED_0X26,
-            "Target Condition": TargetCondition.AUGMENT_UNUSED_0X26_IS_MISSING,
+            "Target Condition": TargetCondition.IS_AUGMENT_UNUSED_0X26_MISSING,
             "Target Type": TargetType.SELF
         }
 
