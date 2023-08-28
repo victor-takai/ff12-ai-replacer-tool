@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle(f"FFXII AI Replacer Tool v{__version__}")
-        self.setGeometry(200, 200, 800, 150)
+        self.setGeometry(200, 200, 1200, 150)
         
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
