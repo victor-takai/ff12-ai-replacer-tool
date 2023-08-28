@@ -282,20 +282,20 @@ class Action(Enum):
     USE_REJUVENATION =                                          0x0104  # 260
     USE_MANAFONT =                                              0x0105  # 261
 
-    SUMMON_BELIAS =                                             0x0106  # 262
-    SUMMON_MATEUS =                                             0x0107  # 263
-    SUMMON_ADRAMMELECH =                                        0x0108  # 264
-    SUMMON_HASHMAL =                                            0x0109  # 265
-    SUMMON_CÚCHULAINN =                                         0x010A  # 266
-    SUMMON_FAMFRIT =                                            0x010B  # 267
-    SUMMON_ZALERA =                                             0x010C  # 268
-    SUMMON_SHEMHAZAI =                                          0x010D  # 269
-    SUMMON_CHAOS =                                              0x010E  # 270
-    SUMMON_ZEROMUS =                                            0x010F  # 271
-    SUMMON_EXODUS =                                             0x0110  # 272
-    SUMMON_ULTIMA =                                             0x0111  # 273
-    SUMMON_ZODIARK =                                            0x0112  # 274
-    DISMISS_ESPER =                                             0x0113  # 275
+    USE_BELIAS =                                                0x0106  # 262
+    USE_MATEUS =                                                0x0107  # 263
+    USE_ADRAMMELECH =                                           0x0108  # 264
+    USE_HASHMAL =                                               0x0109  # 265
+    USE_CÚCHULAINN =                                            0x010A  # 266
+    USE_FAMFRIT =                                               0x010B  # 267
+    USE_ZALERA =                                                0x010C  # 268
+    USE_SHEMHAZAI =                                             0x010D  # 269
+    USE_CHAOS =                                                 0x010E  # 270
+    USE_ZEROMUS =                                               0x010F  # 271
+    USE_EXODUS =                                                0x0110  # 272
+    USE_ULTIMA =                                                0x0111  # 273
+    USE_ZODIARK =                                               0x0112  # 274
+    USE_DISMISS_ESPER =                                         0x0113  # 275
 
     # RESERVE_0X0114 =                                            0x0114  # 276
     # RESERVE_0X0115 =                                            0x0115  # 277
@@ -884,13 +884,16 @@ class Action(Enum):
     P_CHANCE_TO_JUMP_TO_AI_GROUP_9 =                            0x411F # 16671
     P_CHANCE_TO_JUMP_TO_AI_GROUP_10 =                           0x4120 # 16672
     P_CHANCE_TO_JUMP_TO_AI_GROUP_11 =                           0x4121 # 16673  
+    
     ENABLE_AI_FLAG_P =                                          0x4122 # 16674
     DISABLE_AI_FLAG_P =                                         0x4123 # 16675
     FOLLOW_PARTY_LEADER =                                       0x4124 # 16676
     RANDOMLY_MOVE_AROUND_WITHIN_20_METERS =                     0x4125 # 16677
     TURN_TO_P_DEGREES =                                         0x4126 # 16678
     TURN_TOWARDS_PLAYER_PARTY_LEADER =                          0x4127 # 16679
-    UNUSED_0X4128 =                                             0x4128 # 16680
+
+    # UNUSED_0X4128 =                                             0x4128 # 16680
+
     TURN_TOWARDS_VAAN =                                         0x4129 # 16681
     TURN_TOWARDS_ASHE =                                         0x412A # 16682
     TURN_TOWARDS_FRAN =                                         0x412B # 16683
@@ -906,7 +909,8 @@ class Action(Enum):
     TURN_TOWARDS_VOSSLER_RESISTANCE =                           0x4135 # 16693
     TURN_TOWARDS_LARSA =                                        0x4136 # 16694
     TURN_TOWARDS_REDDAS =                                       0x4137 # 16695
-    TURN_TOWARDS_RESERVE_0X0F =                                 0x4138 # 16696  
+    TURN_TOWARDS_RESERVE_0X0F =                                 0x4138 # 16696
+
     ENABLE_MAGICK_FIELD_HP_SAP =                                0x4139 # 16697
     ENABLE_MAGICK_FIELD_MP_SAP =                                0x413A # 16698
     ENABLE_MAGICK_FIELD_NO_ATTACKS =                            0x413B # 16699
@@ -914,7 +918,9 @@ class Action(Enum):
     ENABLE_MAGICK_FIELD_NO_TECHNICKS =                          0x413D # 16701
     ENABLE_MAGICK_FIELD_NO_ITEMS =                              0x413E # 16702
     ENABLE_MAGICK_FIELD_MAGNET =                                0x413F # 16703
-    ENABLE_MAGICK_FIELD_UNUSED_0X07 =                           0x4140 # 16704
+
+    # ENABLE_MAGICK_FIELD_UNUSED_0X07 =                           0x4140 # 16704
+
     DISABLE_MAGICK_FIELD_HP_SAP =                               0x4141 # 16705
     DISABLE_MAGICK_FIELD_MP_SAP =                               0x4142 # 16706
     DISABLE_MAGICK_FIELD_NO_ATTACKS =                           0x4143 # 16707
@@ -922,7 +928,9 @@ class Action(Enum):
     DISABLE_MAGICK_FIELD_NO_TECHNICKS =                         0x4145 # 16709
     DISABLE_MAGICK_FIELD_NO_ITEMS =                             0x4146 # 16710
     DISABLE_MAGICK_FIELD_MAGNET =                               0x4147 # 16711
-    DISABLE_MAGICK_FIELD_UNUSED_0X07 =                          0x4148 # 16712  
+
+    # DISABLE_MAGICK_FIELD_UNUSED_0X07 =                          0x4148 # 16712
+
     SET_FLAG_T_TO_P =                                           0x4149 # 16713
     FOLLOW_PARTY_LEADER_WITHIN_P_METERS =                       0x414A # 16714
     P_CHANCE_TO_TURN_TOWARDS_PARTY_LEADER =                     0x414B # 16715
@@ -935,6 +943,7 @@ class Action(Enum):
     TURN_LEFT_BY_90_DEGREES =                                   0x4152 # 16722
     TURN_AROUND =                                               0x4153 # 16723
     TURN_TOWARDS_POSITION_P =                                   0x4154 # 16724
+    
     SET_FLAG_T_TO_FLAG_T_PLUS_P =                               0x4155 # 16725
     SET_FLAG_T_TO_FLAG_T_OR_P =                                 0x4156 # 16726
     SET_FLAG_T_TO_FLAG_T_AND_P =                                0x4157 # 16727
@@ -951,7 +960,14 @@ class Action(Enum):
     SET_MAGICK_EVADE_SHIELD_TO_MAGICK_EVADE_SHIELD_PLUS_P =     0x4162 # 16738
     SET_ENMITY_TO_1 =                                           0x4163 # 16739
     SET_ENMITY_TO_ENMITY_PLUS_P =                               0x4164 # 16740
+    
     COLLECT_CLOSEST_LOOT =                                      0x4165 # 16741
     SHOW_COMBAT_LOG_P_PLUS_93 =                                 0x4166 # 16742
 
     #========================= Action Packages =========================#   
+
+    # 0x8000	32768	Action Package Set 0
+    # 0x8001	32769	Action Package Set 1
+    # 0x8002	32770	Action Package Set 2
+    # ...       ...     ...
+    # 0x8FFF	36863	Action Package Set 4095

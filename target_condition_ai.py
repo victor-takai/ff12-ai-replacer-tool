@@ -222,12 +222,14 @@ class TargetCondition(Enum):
     IS_GENUS_EQUAL_GUARDIAN =                           0x0A2C # 2604
     IS_GENUS_EQUAL_JUDGE =                              0x0A2D # 2605
     IS_GENUS_EQUAL_DIVER_WYVERN =                       0x0A2E # 2606
+
     # IS_GENUS_EQUAL_RESERVE_0X2F =                       0x0A2F # 2607
     # IS_GENUS_EQUAL_RESERVE_0X30 =                       0x0A30 # 2608
     # IS_GENUS_EQUAL_RESERVE_0X31 =                       0x0A31 # 2609
     # IS_GENUS_EQUAL_RESERVE_0X32 =                       0x0A32 # 2610
     # IS_GENUS_EQUAL_RESERVE_0X33 =                       0x0A33 # 2611
     # IS_GENUS_EQUAL_RESERVE_0X34 =                       0x0A34 # 2612
+
     IS_GENUS_EQUAL_UNKNOWN =                            0x0A35 # 2613
     IS_GENUS_EQUAL_RAT =                                0x0A36 # 2614
     IS_GENUS_EQUAL_CACTUS =                             0x0A37 # 2615
@@ -239,6 +241,14 @@ class TargetCondition(Enum):
     IS_GENUS_EQUAL_UNCLASSIFIED =                       0x0A3D # 2621
     IS_GENUS_EQUAL_ANCIENT_BOMB =                       0x0A3E # 2622
     IS_GENUS_EQUAL_YENSA =                              0x0A3F # 2623
+
+    #========================= Unknown =========================#
+
+    # 0x0C00	3072	BattleWorkBaseInfo[0x52] == 0
+    # 0x0C01	3073	BattleWorkBaseInfo[0x52] == 1
+    # 0x0C02	3074	BattleWorkBaseInfo[0x52] == 2
+    # ...	    ...     ...
+    # 0x0CFF	3327	BattleWorkBaseInfo[0x52] == 255
 
     #========================= HP =========================#
 
@@ -297,7 +307,6 @@ class TargetCondition(Enum):
     IS_MAX_HP_LESSER_OR_EQUAL_50000 =                   0x1107 # 4359
 
     #========================= Unused =========================#
-
 
     # UNUSED_0X1200 =                                     0x1200 # 4608
 
@@ -384,12 +393,12 @@ class TargetCondition(Enum):
 
     #========================= Equipped =========================#
         
-    HAS_EQUIPPED_EQUAL_WEAPON =                         0x1A00 # 6656
-    HAS_EQUIPPED_EQUAL_SHIELD =                         0x1A01 # 6657
-    HAS_EQUIPPED_EQUAL_HELM =                           0x1A02 # 6658
-    HAS_EQUIPPED_EQUAL_ARMOR =                          0x1A03 # 6659
-    HAS_EQUIPPED_EQUAL_ACCESSORY =                      0x1A04 # 6660
-    HAS_EQUIPPED_EQUAL_DEFAULT_WEAPON =                 0x1A05 # 6661
+    HAS_WEAPON_EQUIPPED =                               0x1A00 # 6656
+    HAS_SHIELD_EQUIPPED =                               0x1A01 # 6657
+    HAS_HELM_EQUIPPED =                                 0x1A02 # 6658
+    HAS_ARMOR_EQUIPPED =                                0x1A03 # 6659
+    HAS_ACCESSORY_EQUIPPED =                            0x1A04 # 6660
+    HAS_DEFAULT_WEAPON_EQUIPPED =                       0x1A05 # 6661
 
     IS_WEAPON_TYPE_EQUAL_NONE =                         0x1C00 # 7168
     IS_WEAPON_TYPE_EQUAL_UNARMED =                      0x1C01 # 7169
@@ -415,6 +424,8 @@ class TargetCondition(Enum):
     IS_WEAPON_TYPE_EQUAL_HAND_BOMB =                    0x1C15 # 7189
     IS_WEAPON_TYPE_EQUAL_UNARMED_BRAWLER =              0x1C16 # 7190
         
+    #========================= Unused =========================#
+
     # UNUSED_0X1E00 =                                     0x1E00 # 7680
 
     #========================= Augments =========================#
@@ -810,25 +821,31 @@ class TargetCondition(Enum):
     IS_PARTY_LEADER =                                   0x2202 # 8706
     IS_GUEST =                                          0x2203 # 8707
     IS_ESPER =                                          0x2204 # 8708
+
     # UNUSED_0X2205 =                                     0x2205 # 8709
     # UNUSED_0X2206 =                                     0x2206 # 8710
     # UNUSED_0X2207 =                                     0x2207 # 8711
+
     IS_ENMITY_GREATER_EQUAL_P =                         0x2208 # 8712
     IS_GROUP_EQUAL_P =                                  0x2209 # 8713
     IS_STATUS_EFFECT_EQUAL_P =                          0x220A # 8714
-    IS_CLASSIFICATION_EQUAL_P =                         0x220B # 8715
+    IS_CLASS_EQUAL_P =                                  0x220B # 8715
     IS_GENUS_EQUAL_P =                                  0x220C # 8716
     IS_HUNT_OR_BOSS =                                   0x220D # 8717
+
     # UNUSED_0X220E =                                     0x220E # 8718
     # UNUSED_0X220F =                                     0x220F # 8719
+
     IS_LEVEL_GREATER_EQUAL_P =                          0x2210 # 8720
     IS_SPAWN_POSITION_WITHIN_P_METERS =                 0x2211 # 8721
     IS_PARTY_MEMBER_WITHIN_P_METERS =                   0x2212 # 8722
     IS_PLAYER_PARTY_LEADER_WITHIN_P_METERS =            0x2213 # 8723
     IS_PARTY_LEADER_WITHIN_P_METERS =                   0x2214 # 8724
     IS_PLAYER_PARTY_LEADER_WITHIN_RADIUS_P_METERS =     0x2215 # 8725
+
     # UNUSED_0X2216 =                                     0x2216 # 8726
     # UNUSED_0X2217 =                                     0x2217 # 8727
+
     IS_TARGETING_LEADER =                               0x2218 # 8728
     IS_TARGETING_SELF =                                 0x2219 # 8729
     IS_TARGETING_ALLY =                                 0x221A # 8730
@@ -841,11 +858,262 @@ class TargetCondition(Enum):
 
     #========================= Position =========================#
 
-    # 0x2400	9216	Position 1 is within (p) meters
-    # 0x2401	9217	Position 2 is within (p) meters
-    # 0x2402	9218	Position 3 is within (p) meters
-    # ...	...	…
-    # 0x24FF	9471	Position 256 is within (p) meters
+    IS_POSITION_1_WITHIN_P_METERS =                     0x2400 # 9216
+    IS_POSITION_2_WITHIN_P_METERS =                     0x2401 # 9217
+    IS_POSITION_3_WITHIN_P_METERS =                     0x2402 # 9218
+    IS_POSITION_4_WITHIN_P_METERS =                     0x2403 # 9219
+    IS_POSITION_5_WITHIN_P_METERS =                     0x2404 # 9220
+    IS_POSITION_6_WITHIN_P_METERS =                     0x2405 # 9221
+    IS_POSITION_7_WITHIN_P_METERS =                     0x2406 # 9222
+    IS_POSITION_8_WITHIN_P_METERS =                     0x2407 # 9223
+    IS_POSITION_9_WITHIN_P_METERS =                     0x2408 # 9224
+    IS_POSITION_10_WITHIN_P_METERS =                    0x2409 # 9225
+    IS_POSITION_11_WITHIN_P_METERS =                    0x240A # 9226
+    IS_POSITION_12_WITHIN_P_METERS =                    0x240B # 9227
+    IS_POSITION_13_WITHIN_P_METERS =                    0x240C # 9228
+    IS_POSITION_14_WITHIN_P_METERS =                    0x240D # 9229
+    IS_POSITION_15_WITHIN_P_METERS =                    0x240E # 9230
+    IS_POSITION_16_WITHIN_P_METERS =                    0x240F # 9231
+    IS_POSITION_17_WITHIN_P_METERS =                    0x2410 # 9232
+    IS_POSITION_18_WITHIN_P_METERS =                    0x2411 # 9233
+    IS_POSITION_19_WITHIN_P_METERS =                    0x2412 # 9234
+    IS_POSITION_20_WITHIN_P_METERS =                    0x2413 # 9235
+    IS_POSITION_21_WITHIN_P_METERS =                    0x2414 # 9236
+    IS_POSITION_22_WITHIN_P_METERS =                    0x2415 # 9237
+    IS_POSITION_23_WITHIN_P_METERS =                    0x2416 # 9238
+    IS_POSITION_24_WITHIN_P_METERS =                    0x2417 # 9239
+    IS_POSITION_25_WITHIN_P_METERS =                    0x2418 # 9240
+    IS_POSITION_26_WITHIN_P_METERS =                    0x2419 # 9241
+    IS_POSITION_27_WITHIN_P_METERS =                    0x241A # 9242
+    IS_POSITION_28_WITHIN_P_METERS =                    0x241B # 9243
+    IS_POSITION_29_WITHIN_P_METERS =                    0x241C # 9244
+    IS_POSITION_30_WITHIN_P_METERS =                    0x241D # 9245
+    IS_POSITION_31_WITHIN_P_METERS =                    0x241E # 9246
+    IS_POSITION_32_WITHIN_P_METERS =                    0x241F # 9247
+    IS_POSITION_33_WITHIN_P_METERS =                    0x2420 # 9248
+    IS_POSITION_34_WITHIN_P_METERS =                    0x2421 # 9249
+    IS_POSITION_35_WITHIN_P_METERS =                    0x2422 # 9250
+    IS_POSITION_36_WITHIN_P_METERS =                    0x2423 # 9251
+    IS_POSITION_37_WITHIN_P_METERS =                    0x2424 # 9252
+    IS_POSITION_38_WITHIN_P_METERS =                    0x2425 # 9253
+    IS_POSITION_39_WITHIN_P_METERS =                    0x2426 # 9254
+    IS_POSITION_40_WITHIN_P_METERS =                    0x2427 # 9255
+    IS_POSITION_41_WITHIN_P_METERS =                    0x2428 # 9256
+    IS_POSITION_42_WITHIN_P_METERS =                    0x2429 # 9257
+    IS_POSITION_43_WITHIN_P_METERS =                    0x242A # 9258
+    IS_POSITION_44_WITHIN_P_METERS =                    0x242B # 9259
+    IS_POSITION_45_WITHIN_P_METERS =                    0x242C # 9260
+    IS_POSITION_46_WITHIN_P_METERS =                    0x242D # 9261
+    IS_POSITION_47_WITHIN_P_METERS =                    0x242E # 9262
+    IS_POSITION_48_WITHIN_P_METERS =                    0x242F # 9263
+    IS_POSITION_49_WITHIN_P_METERS =                    0x2430 # 9264
+    IS_POSITION_50_WITHIN_P_METERS =                    0x2431 # 9265
+    IS_POSITION_51_WITHIN_P_METERS =                    0x2432 # 9266
+    IS_POSITION_52_WITHIN_P_METERS =                    0x2433 # 9267
+    IS_POSITION_53_WITHIN_P_METERS =                    0x2434 # 9268
+    IS_POSITION_54_WITHIN_P_METERS =                    0x2435 # 9269
+    IS_POSITION_55_WITHIN_P_METERS =                    0x2436 # 9270
+    IS_POSITION_56_WITHIN_P_METERS =                    0x2437 # 9271
+    IS_POSITION_57_WITHIN_P_METERS =                    0x2438 # 9272
+    IS_POSITION_58_WITHIN_P_METERS =                    0x2439 # 9273
+    IS_POSITION_59_WITHIN_P_METERS =                    0x243A # 9274
+    IS_POSITION_60_WITHIN_P_METERS =                    0x243B # 9275
+    IS_POSITION_61_WITHIN_P_METERS =                    0x243C # 9276
+    IS_POSITION_62_WITHIN_P_METERS =                    0x243D # 9277
+    IS_POSITION_63_WITHIN_P_METERS =                    0x243E # 9278
+    IS_POSITION_64_WITHIN_P_METERS =                    0x243F # 9279
+    IS_POSITION_65_WITHIN_P_METERS =                    0x2440 # 9280
+    IS_POSITION_66_WITHIN_P_METERS =                    0x2441 # 9281
+    IS_POSITION_67_WITHIN_P_METERS =                    0x2442 # 9282
+    IS_POSITION_68_WITHIN_P_METERS =                    0x2443 # 9283
+    IS_POSITION_69_WITHIN_P_METERS =                    0x2444 # 9284
+    IS_POSITION_70_WITHIN_P_METERS =                    0x2445 # 9285
+    IS_POSITION_71_WITHIN_P_METERS =                    0x2446 # 9286
+    IS_POSITION_72_WITHIN_P_METERS =                    0x2447 # 9287
+    IS_POSITION_73_WITHIN_P_METERS =                    0x2448 # 9288
+    IS_POSITION_74_WITHIN_P_METERS =                    0x2449 # 9289
+    IS_POSITION_75_WITHIN_P_METERS =                    0x244A # 9290
+    IS_POSITION_76_WITHIN_P_METERS =                    0x244B # 9291
+    IS_POSITION_77_WITHIN_P_METERS =                    0x244C # 9292
+    IS_POSITION_78_WITHIN_P_METERS =                    0x244D # 9293
+    IS_POSITION_79_WITHIN_P_METERS =                    0x244E # 9294
+    IS_POSITION_80_WITHIN_P_METERS =                    0x244F # 9295
+    IS_POSITION_81_WITHIN_P_METERS =                    0x2450 # 9296
+    IS_POSITION_82_WITHIN_P_METERS =                    0x2451 # 9297
+    IS_POSITION_83_WITHIN_P_METERS =                    0x2452 # 9298
+    IS_POSITION_84_WITHIN_P_METERS =                    0x2453 # 9299
+    IS_POSITION_85_WITHIN_P_METERS =                    0x2454 # 9300
+    IS_POSITION_86_WITHIN_P_METERS =                    0x2455 # 9301
+    IS_POSITION_87_WITHIN_P_METERS =                    0x2456 # 9302
+    IS_POSITION_88_WITHIN_P_METERS =                    0x2457 # 9303
+    IS_POSITION_89_WITHIN_P_METERS =                    0x2458 # 9304
+    IS_POSITION_90_WITHIN_P_METERS =                    0x2459 # 9305
+    IS_POSITION_91_WITHIN_P_METERS =                    0x245A # 9306
+    IS_POSITION_92_WITHIN_P_METERS =                    0x245B # 9307
+    IS_POSITION_93_WITHIN_P_METERS =                    0x245C # 9308
+    IS_POSITION_94_WITHIN_P_METERS =                    0x245D # 9309
+    IS_POSITION_95_WITHIN_P_METERS =                    0x245E # 9310
+    IS_POSITION_96_WITHIN_P_METERS =                    0x245F # 9311
+    IS_POSITION_97_WITHIN_P_METERS =                    0x2460 # 9312
+    IS_POSITION_98_WITHIN_P_METERS =                    0x2461 # 9313
+    IS_POSITION_99_WITHIN_P_METERS =                    0x2462 # 9314
+    IS_POSITION_100_WITHIN_P_METERS =                   0x2463 # 9315
+    IS_POSITION_101_WITHIN_P_METERS =                   0x2464 # 9316
+    IS_POSITION_102_WITHIN_P_METERS =                   0x2465 # 9317
+    IS_POSITION_103_WITHIN_P_METERS =                   0x2466 # 9318
+    IS_POSITION_104_WITHIN_P_METERS =                   0x2467 # 9319
+    IS_POSITION_105_WITHIN_P_METERS =                   0x2468 # 9320
+    IS_POSITION_106_WITHIN_P_METERS =                   0x2469 # 9321
+    IS_POSITION_107_WITHIN_P_METERS =                   0x246A # 9322
+    IS_POSITION_108_WITHIN_P_METERS =                   0x246B # 9323
+    IS_POSITION_109_WITHIN_P_METERS =                   0x246C # 9324
+    IS_POSITION_110_WITHIN_P_METERS =                   0x246D # 9325
+    IS_POSITION_111_WITHIN_P_METERS =                   0x246E # 9326
+    IS_POSITION_112_WITHIN_P_METERS =                   0x246F # 9327
+    IS_POSITION_113_WITHIN_P_METERS =                   0x2470 # 9328
+    IS_POSITION_114_WITHIN_P_METERS =                   0x2471 # 9329
+    IS_POSITION_115_WITHIN_P_METERS =                   0x2472 # 9330
+    IS_POSITION_116_WITHIN_P_METERS =                   0x2473 # 9331
+    IS_POSITION_117_WITHIN_P_METERS =                   0x2474 # 9332
+    IS_POSITION_118_WITHIN_P_METERS =                   0x2475 # 9333
+    IS_POSITION_119_WITHIN_P_METERS =                   0x2476 # 9334
+    IS_POSITION_120_WITHIN_P_METERS =                   0x2477 # 9335
+    IS_POSITION_121_WITHIN_P_METERS =                   0x2478 # 9336
+    IS_POSITION_122_WITHIN_P_METERS =                   0x2479 # 9337
+    IS_POSITION_123_WITHIN_P_METERS =                   0x247A # 9338
+    IS_POSITION_124_WITHIN_P_METERS =                   0x247B # 9339
+    IS_POSITION_125_WITHIN_P_METERS =                   0x247C # 9340
+    IS_POSITION_126_WITHIN_P_METERS =                   0x247D # 9341
+    IS_POSITION_127_WITHIN_P_METERS =                   0x247E # 9342
+    IS_POSITION_128_WITHIN_P_METERS =                   0x247F # 9343
+    IS_POSITION_129_WITHIN_P_METERS =                   0x2480 # 9344
+    IS_POSITION_130_WITHIN_P_METERS =                   0x2481 # 9345
+    IS_POSITION_131_WITHIN_P_METERS =                   0x2482 # 9346
+    IS_POSITION_132_WITHIN_P_METERS =                   0x2483 # 9347
+    IS_POSITION_133_WITHIN_P_METERS =                   0x2484 # 9348
+    IS_POSITION_134_WITHIN_P_METERS =                   0x2485 # 9349
+    IS_POSITION_135_WITHIN_P_METERS =                   0x2486 # 9350
+    IS_POSITION_136_WITHIN_P_METERS =                   0x2487 # 9351
+    IS_POSITION_137_WITHIN_P_METERS =                   0x2488 # 9352
+    IS_POSITION_138_WITHIN_P_METERS =                   0x2489 # 9353
+    IS_POSITION_139_WITHIN_P_METERS =                   0x248A # 9354
+    IS_POSITION_140_WITHIN_P_METERS =                   0x248B # 9355
+    IS_POSITION_141_WITHIN_P_METERS =                   0x248C # 9356
+    IS_POSITION_142_WITHIN_P_METERS =                   0x248D # 9357
+    IS_POSITION_143_WITHIN_P_METERS =                   0x248E # 9358
+    IS_POSITION_144_WITHIN_P_METERS =                   0x248F # 9359
+    IS_POSITION_145_WITHIN_P_METERS =                   0x2490 # 9360
+    IS_POSITION_146_WITHIN_P_METERS =                   0x2491 # 9361
+    IS_POSITION_147_WITHIN_P_METERS =                   0x2492 # 9362
+    IS_POSITION_148_WITHIN_P_METERS =                   0x2493 # 9363
+    IS_POSITION_149_WITHIN_P_METERS =                   0x2494 # 9364
+    IS_POSITION_150_WITHIN_P_METERS =                   0x2495 # 9365
+    IS_POSITION_151_WITHIN_P_METERS =                   0x2496 # 9366
+    IS_POSITION_152_WITHIN_P_METERS =                   0x2497 # 9367
+    IS_POSITION_153_WITHIN_P_METERS =                   0x2498 # 9368
+    IS_POSITION_154_WITHIN_P_METERS =                   0x2499 # 9369
+    IS_POSITION_155_WITHIN_P_METERS =                   0x249A # 9370
+    IS_POSITION_156_WITHIN_P_METERS =                   0x249B # 9371
+    IS_POSITION_157_WITHIN_P_METERS =                   0x249C # 9372
+    IS_POSITION_158_WITHIN_P_METERS =                   0x249D # 9373
+    IS_POSITION_159_WITHIN_P_METERS =                   0x249E # 9374
+    IS_POSITION_160_WITHIN_P_METERS =                   0x249F # 9375
+    IS_POSITION_161_WITHIN_P_METERS =                   0x24A0 # 9376
+    IS_POSITION_162_WITHIN_P_METERS =                   0x24A1 # 9377
+    IS_POSITION_163_WITHIN_P_METERS =                   0x24A2 # 9378
+    IS_POSITION_164_WITHIN_P_METERS =                   0x24A3 # 9379
+    IS_POSITION_165_WITHIN_P_METERS =                   0x24A4 # 9380
+    IS_POSITION_166_WITHIN_P_METERS =                   0x24A5 # 9381
+    IS_POSITION_167_WITHIN_P_METERS =                   0x24A6 # 9382
+    IS_POSITION_168_WITHIN_P_METERS =                   0x24A7 # 9383
+    IS_POSITION_169_WITHIN_P_METERS =                   0x24A8 # 9384
+    IS_POSITION_170_WITHIN_P_METERS =                   0x24A9 # 9385
+    IS_POSITION_171_WITHIN_P_METERS =                   0x24AA # 9386
+    IS_POSITION_172_WITHIN_P_METERS =                   0x24AB # 9387
+    IS_POSITION_173_WITHIN_P_METERS =                   0x24AC # 9388
+    IS_POSITION_174_WITHIN_P_METERS =                   0x24AD # 9389
+    IS_POSITION_175_WITHIN_P_METERS =                   0x24AE # 9390
+    IS_POSITION_176_WITHIN_P_METERS =                   0x24AF # 9391
+    IS_POSITION_177_WITHIN_P_METERS =                   0x24B0 # 9392
+    IS_POSITION_178_WITHIN_P_METERS =                   0x24B1 # 9393
+    IS_POSITION_179_WITHIN_P_METERS =                   0x24B2 # 9394
+    IS_POSITION_180_WITHIN_P_METERS =                   0x24B3 # 9395
+    IS_POSITION_181_WITHIN_P_METERS =                   0x24B4 # 9396
+    IS_POSITION_182_WITHIN_P_METERS =                   0x24B5 # 9397
+    IS_POSITION_183_WITHIN_P_METERS =                   0x24B6 # 9398
+    IS_POSITION_184_WITHIN_P_METERS =                   0x24B7 # 9399
+    IS_POSITION_185_WITHIN_P_METERS =                   0x24B8 # 9400
+    IS_POSITION_186_WITHIN_P_METERS =                   0x24B9 # 9401
+    IS_POSITION_187_WITHIN_P_METERS =                   0x24BA # 9402
+    IS_POSITION_188_WITHIN_P_METERS =                   0x24BB # 9403
+    IS_POSITION_189_WITHIN_P_METERS =                   0x24BC # 9404
+    IS_POSITION_190_WITHIN_P_METERS =                   0x24BD # 9405
+    IS_POSITION_191_WITHIN_P_METERS =                   0x24BE # 9406
+    IS_POSITION_192_WITHIN_P_METERS =                   0x24BF # 9407
+    IS_POSITION_193_WITHIN_P_METERS =                   0x24C0 # 9408
+    IS_POSITION_194_WITHIN_P_METERS =                   0x24C1 # 9409
+    IS_POSITION_195_WITHIN_P_METERS =                   0x24C2 # 9410
+    IS_POSITION_196_WITHIN_P_METERS =                   0x24C3 # 9411
+    IS_POSITION_197_WITHIN_P_METERS =                   0x24C4 # 9412
+    IS_POSITION_198_WITHIN_P_METERS =                   0x24C5 # 9413
+    IS_POSITION_199_WITHIN_P_METERS =                   0x24C6 # 9414
+    IS_POSITION_200_WITHIN_P_METERS =                   0x24C7 # 9415
+    IS_POSITION_201_WITHIN_P_METERS =                   0x24C8 # 9416
+    IS_POSITION_202_WITHIN_P_METERS =                   0x24C9 # 9417
+    IS_POSITION_203_WITHIN_P_METERS =                   0x24CA # 9418
+    IS_POSITION_204_WITHIN_P_METERS =                   0x24CB # 9419
+    IS_POSITION_205_WITHIN_P_METERS =                   0x24CC # 9420
+    IS_POSITION_206_WITHIN_P_METERS =                   0x24CD # 9421
+    IS_POSITION_207_WITHIN_P_METERS =                   0x24CE # 9422
+    IS_POSITION_208_WITHIN_P_METERS =                   0x24CF # 9423
+    IS_POSITION_209_WITHIN_P_METERS =                   0x24D0 # 9424
+    IS_POSITION_210_WITHIN_P_METERS =                   0x24D1 # 9425
+    IS_POSITION_211_WITHIN_P_METERS =                   0x24D2 # 9426
+    IS_POSITION_212_WITHIN_P_METERS =                   0x24D3 # 9427
+    IS_POSITION_213_WITHIN_P_METERS =                   0x24D4 # 9428
+    IS_POSITION_214_WITHIN_P_METERS =                   0x24D5 # 9429
+    IS_POSITION_215_WITHIN_P_METERS =                   0x24D6 # 9430
+    IS_POSITION_216_WITHIN_P_METERS =                   0x24D7 # 9431
+    IS_POSITION_217_WITHIN_P_METERS =                   0x24D8 # 9432
+    IS_POSITION_218_WITHIN_P_METERS =                   0x24D9 # 9433
+    IS_POSITION_219_WITHIN_P_METERS =                   0x24DA # 9434
+    IS_POSITION_220_WITHIN_P_METERS =                   0x24DB # 9435
+    IS_POSITION_221_WITHIN_P_METERS =                   0x24DC # 9436
+    IS_POSITION_222_WITHIN_P_METERS =                   0x24DD # 9437
+    IS_POSITION_223_WITHIN_P_METERS =                   0x24DE # 9438
+    IS_POSITION_224_WITHIN_P_METERS =                   0x24DF # 9439
+    IS_POSITION_225_WITHIN_P_METERS =                   0x24E0 # 9440
+    IS_POSITION_226_WITHIN_P_METERS =                   0x24E1 # 9441
+    IS_POSITION_227_WITHIN_P_METERS =                   0x24E2 # 9442
+    IS_POSITION_228_WITHIN_P_METERS =                   0x24E3 # 9443
+    IS_POSITION_229_WITHIN_P_METERS =                   0x24E4 # 9444
+    IS_POSITION_230_WITHIN_P_METERS =                   0x24E5 # 9445
+    IS_POSITION_231_WITHIN_P_METERS =                   0x24E6 # 9446
+    IS_POSITION_232_WITHIN_P_METERS =                   0x24E7 # 9447
+    IS_POSITION_233_WITHIN_P_METERS =                   0x24E8 # 9448
+    IS_POSITION_234_WITHIN_P_METERS =                   0x24E9 # 9449
+    IS_POSITION_235_WITHIN_P_METERS =                   0x24EA # 9450
+    IS_POSITION_236_WITHIN_P_METERS =                   0x24EB # 9451
+    IS_POSITION_237_WITHIN_P_METERS =                   0x24EC # 9452
+    IS_POSITION_238_WITHIN_P_METERS =                   0x24ED # 9453
+    IS_POSITION_239_WITHIN_P_METERS =                   0x24EE # 9454
+    IS_POSITION_240_WITHIN_P_METERS =                   0x24EF # 9455
+    IS_POSITION_241_WITHIN_P_METERS =                   0x24F0 # 9456
+    IS_POSITION_242_WITHIN_P_METERS =                   0x24F1 # 9457
+    IS_POSITION_243_WITHIN_P_METERS =                   0x24F2 # 9458
+    IS_POSITION_244_WITHIN_P_METERS =                   0x24F3 # 9459
+    IS_POSITION_245_WITHIN_P_METERS =                   0x24F4 # 9460
+    IS_POSITION_246_WITHIN_P_METERS =                   0x24F5 # 9461
+    IS_POSITION_247_WITHIN_P_METERS =                   0x24F6 # 9462
+    IS_POSITION_248_WITHIN_P_METERS =                   0x24F7 # 9463
+    IS_POSITION_249_WITHIN_P_METERS =                   0x24F8 # 9464
+    IS_POSITION_250_WITHIN_P_METERS =                   0x24F9 # 9465
+    IS_POSITION_251_WITHIN_P_METERS =                   0x24FA # 9466
+    IS_POSITION_252_WITHIN_P_METERS =                   0x24FB # 9467
+    IS_POSITION_253_WITHIN_P_METERS =                   0x24FC # 9468
+    IS_POSITION_254_WITHIN_P_METERS =                   0x24FD # 9469
+    IS_POSITION_255_WITHIN_P_METERS =                   0x24FE # 9470
+    IS_POSITION_256_WITHIN_P_METERS =                   0x24FF # 9471
 
     IS_VAAN_WITHIN_P_METERS =                           0x2600 # 9728
     IS_ASHE_WITHIN_P_METERS =                           0x2601 # 9729
@@ -862,20 +1130,22 @@ class TargetCondition(Enum):
     IS_VOSSLER_RESISTANCE_WITHIN_P_METERS =             0x260C # 9740
     IS_LARSA_WITHIN_P_METERS =                          0x260D # 9741
     IS_REDDAS_WITHIN_P_METERS =                         0x260E # 9742
-    IS_RESERVE_0X0F_WITHIN_P_METERS =                   0x260F # 9743
-    IS_RESERVE_0X10_WITHIN_P_METERS =                   0x2610 # 9744
-    IS_RESERVE_0X11_WITHIN_P_METERS =                   0x2611 # 9745
-    IS_RESERVE_0X12_WITHIN_P_METERS =                   0x2612 # 9746
-    IS_RESERVE_0X13_WITHIN_P_METERS =                   0x2613 # 9747
-    IS_RESERVE_0X14_WITHIN_P_METERS =                   0x2614 # 9748
-    IS_RESERVE_0X15_WITHIN_P_METERS =                   0x2615 # 9749
-    IS_RESERVE_0X16_WITHIN_P_METERS =                   0x2616 # 9750
-    IS_RESERVE_0X17_WITHIN_P_METERS =                   0x2617 # 9751
-    IS_RESERVE_0X18_WITHIN_P_METERS =                   0x2618 # 9752
-    IS_RESERVE_0X19_WITHIN_P_METERS =                   0x2619 # 9753
+
+    # IS_RESERVE_0X0F_WITHIN_P_METERS =                   0x260F # 9743
+    # IS_RESERVE_0X10_WITHIN_P_METERS =                   0x2610 # 9744
+    # IS_RESERVE_0X11_WITHIN_P_METERS =                   0x2611 # 9745
+    # IS_RESERVE_0X12_WITHIN_P_METERS =                   0x2612 # 9746
+    # IS_RESERVE_0X13_WITHIN_P_METERS =                   0x2613 # 9747
+    # IS_RESERVE_0X14_WITHIN_P_METERS =                   0x2614 # 9748
+    # IS_RESERVE_0X15_WITHIN_P_METERS =                   0x2615 # 9749
+    # IS_RESERVE_0X16_WITHIN_P_METERS =                   0x2616 # 9750
+    # IS_RESERVE_0X17_WITHIN_P_METERS =                   0x2617 # 9751
+    # IS_RESERVE_0X18_WITHIN_P_METERS =                   0x2618 # 9752
+    # IS_RESERVE_0X19_WITHIN_P_METERS =                   0x2619 # 9753
+
     IS_CHOCOBO_WITHIN_P_METERS =                        0x261A # 9754
     IS_BELIAS_WITHIN_P_METERS =                         0x261B # 9755
-    IS_MATEU_WITHIN_P_METERS =                          0x261C # 9756
+    IS_MATEUS_WITHIN_P_METERS =                         0x261C # 9756
     IS_ANDRAMMELECH_WITHIN_P_METERS =                   0x261D # 9757
     IS_HASHMAL_WITHIN_P_METERS =                        0x261E # 9758
     IS_CUCHULAINN_WITHIN_P_METERS =                     0x261F # 9759
