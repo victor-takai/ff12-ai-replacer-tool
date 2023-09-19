@@ -123,6 +123,7 @@ class MainWindow(QMainWindow):
         input_folder = "unpacked"
         target_filename = "section_003.json"
         output_folder = "edited"
+        files_in_directory = os.listdir(output_folder)
 
         find_action = self.get_enum_from_combo_box(self.combo_boxes_original["Action"], "Action")
         find_condition = self.get_enum_from_combo_box(self.combo_boxes_original["Target Condition"], "Target Condition")
@@ -131,7 +132,7 @@ class MainWindow(QMainWindow):
         condition_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Target Condition"], "Target Condition")
         target_replace = self.get_enum_from_combo_box(self.combo_boxes_replace["Target Type"], "Target Type")
 
-        if any(os.listdir(output_folder)):
+        if any(file != ".gitkeep" for file in files_in_directory):
             reply = QMessageBox.warning(
                 self,
                 "Warning",
